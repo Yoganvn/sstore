@@ -1,4 +1,4 @@
-import { ArrowRight, Recycle } from 'lucide-react'
+import { ArrowRight, Recycle, MapPin, Clock, Phone } from 'lucide-react' // 1. Added Icons
 import { fetchPriceData } from '@/lib/data'
 import PriceCalculator from '@/components/PriceCalculator'
 import { CaraKerjaSection } from '@/components/CaraKerjaSection'
@@ -21,11 +21,12 @@ export default async function HomePage() {
               </span>
             </div>
 
-            {/* Desktop Nav */}
+            {/* 2. Updated Navigation */}
             <nav className="hidden md:flex items-center gap-1">
               {[
                 { label: 'Cara Kerja', href: '#cara-kerja' },
                 { label: 'Cek Harga', href: '#calculator' },
+                { label: 'Lokasi Store', href: '#lokasi-store' },
                 { label: 'FAQ', href: '#faq' },
               ].map((link) => (
                 <a
@@ -130,6 +131,91 @@ export default async function HomePage() {
         </div>
       </section>
 
+
+      <section id="lokasi-store" className="py-16 sm:py-24 bg-slate-50 border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Kunjungi Store Kami
+            </h2>
+            <p className="text-lg text-slate-600">
+              Ingin transaksi langsung? Datang ke lokasi offline store kami.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 h-full">
+              <div className="space-y-8">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">Alamat Store</h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Jl. Telekomunikasi No. 1<br />
+                      Terusan Buahbatu - Bojongsoang,<br />
+                      Sukapura, Kec. Dayeuhkolot,<br />
+                      Kabupaten Bandung, Jawa Barat 40257
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600">
+                    <Clock className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">Jam Operasional</h3>
+                    <p className="text-slate-600">Senin - Minggu</p>
+                    <p className="text-slate-900 font-medium">09.00 - 21.00 WIB</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">Hubungi Kami</h3>
+                    <p className="text-slate-600">WhatsApp & Telepon</p>
+                    <a href="https://wa.me/6281234567890" className="text-blue-600 font-medium hover:underline">
+                      0812-3456-7890
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="pt-4">
+                  <a 
+                    href="https://goo.gl/maps/placeholder" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white font-medium rounded-xl hover:bg-slate-800 transition-colors"
+                  >
+                    <MapPin className="w-4 h-4" />
+                    Buka di Google Maps
+                  </a>
+                </div>
+              </div>
+            </div>
+           <div className="bg-slate-200 rounded-3xl overflow-hidden shadow-lg h-[400px] md:h-full min-h-[400px] relative">
+
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.307454332909!2d107.6608144!3d-6.973007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9adf177bf8d%3A0x437398556f9fa03!2sTelkom%20University!5e0!3m2!1sen!2sid!4v1689567891234!5m2!1sen!2sid" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 w-full h-full grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section id="faq" className="py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -209,6 +295,7 @@ export default async function HomePage() {
               <ul className="space-y-2 text-slate-400">
                 <li><a href="#cara-kerja" className="hover:text-white transition-colors">Cara Kerja</a></li>
                 <li><a href="#calculator" className="hover:text-white transition-colors">Cek Harga</a></li>
+                <li><a href="#lokasi-store" className="hover:text-white transition-colors">Lokasi Store</a></li>
                 <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
               </ul>
             </div>
